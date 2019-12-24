@@ -1,0 +1,91 @@
+Нарисовать график sin(x) и задать название графику и подписать оси
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import math
+
+dpi = 80
+fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi) )
+mpl.rcParams.update({'font.size': 10})
+
+plt.axis([0, 10, -1.5, 1.5])
+
+plt.title('Sin')
+plt.xlabel('x')
+plt.ylabel('y')
+
+xs = []
+sin_vals = []
+
+x = 0.0
+while x < 10.0:
+    sin_vals += [ math.sin(x) ]
+    xs += [x]
+    x += 0.1
+
+plt.plot(xs, sin_vals, color = 'blue', linestyle = 'solid',
+         label = 'sin(x)')
+
+plt.legend(loc = 'upper right')
+
+Нарисовать графики sin(x) и cos(x) в одном рисунке, а также по отдельности
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import math
+
+dpi = 80
+fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi) )
+mpl.rcParams.update({'font.size': 10})
+
+plt.axis([0, 10, -1.5, 1.5])
+
+plt.title('Sine & Cosine')
+plt.xlabel('x')
+plt.ylabel('F(x)')
+
+xs = []
+sin_vals = []
+cos_vals = []
+
+x = 0.0
+while x < 10.0:
+    sin_vals += [ math.sin(x) ]
+    cos_vals += [ math.cos(x) ]
+    xs += [x]
+    x += 0.1
+
+plt.plot(xs, sin_vals, color = 'blue', linestyle = 'solid',
+         label = 'sin(x)')
+plt.plot(xs, cos_vals, color = 'red', linestyle = 'dashed',
+         label = 'cos(x)')
+
+plt.legend(loc = 'upper right')
+
+Нарисовать график 10 стран с наибольшим количеством жителей и подписать оси
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import datetime as dt
+import csv
+
+data_names = ['Китай', 'Индия', 'США', 'Индонезия', 'Пакистан', 'Бразилия',
+              'Нигерия', 'Бангладеш', 'Россия', 'Япония']
+data_values = [1394470000, 1343160000, 328655000, 265015300, 212742631, 210215000, 188500000, 166009000,
+               146877088, 126440000]
+
+dpi = 80
+fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi) )
+mpl.rcParams.update({'font.size': 9})
+
+plt.title('Население стран')
+
+ax = plt.axes()
+ax.xaxis.grid(True, zorder = 1)
+
+xs = range(len(data_names))
+
+plt.barh([x + 0.05 for x in xs], data_values,
+         height = 0.2, color = 'blue', alpha = 0.7, label = '2019',
+         zorder = 2)
+plt.yticks(xs, data_names, rotation = 10)
+
+plt.legend(loc='upper right')
