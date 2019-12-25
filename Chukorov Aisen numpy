@@ -1,0 +1,344 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. Создать вектор размером 10 состоящий из единиц"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "s = np.ones((10))\n",
+    "print(s)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "2. Создать массив 4x4 заполненный случайными числами от 0 до 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[0.53254932 0.73994514 0.88833594 0.17149149]\n",
+      " [0.47083466 0.87507124 0.48035289 0.53698972]\n",
+      " [0.55757432 0.27692511 0.63006166 0.8714069 ]\n",
+      " [0.95601585 0.18643773 0.22245112 0.78856701]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "n=4\n",
+    "s = np.random.sample((n, n))\n",
+    "print(s)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "3. Создать массив 5x3 заполненный случайными целыми числами от 0 до 100"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[18 56 19]\n",
+      " [87 41 27]\n",
+      " [28 61 99]\n",
+      " [26 22 13]\n",
+      " [27 85 83]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "f = np.random.randint(0, 100, (5, 3))\n",
+    "print(f)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "4. Поменять форму предыдущего массива на 3х5, а тип на float"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[18 56 19 87 41]\n",
+      " [27 28 61 99 26]\n",
+      " [22 13 27 85 83]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "f.shape = (3, 5)\n",
+    "f.dtype = int\n",
+    "print(f)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "5. Найти сумму, максимум и среднее значение массива из пункта 3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[15 57 28 22 37]\n",
+      " [61 71 55 25 29]\n",
+      " [53 31 11 30 27]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "s.shape = (5,3)\n",
+    "s.dtype = int\n",
+    "print(np.sum(s))\n",
+    "print(np.max(s))\n",
+    "print(np.sum(s)/np.average(s))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "6. Создать функцию который меняет элементы массива на следующее выражение: sin(x)+cos(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "781\n",
+      "99\n",
+      "14.999999999999998\n"
+     ]
+    }
+   ],
+   "source": [
+    "def sincos(x):\n",
+    "    return np.sin(x) + np.cos(x)\n",
+    "x=sincos(x)\n",
+    "print('x:\\n', x)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "7. Создать функцию вычисляющий: a*b+c, где a,b,c - массивы с размером nxn"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def abc(a,b,c):\n",
+    "    return a*b+с"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "8. Найти определитель матрицы 3x3, если определитель положительный, то найти QR разложение иначе найти обратную матрицу."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x: [[0.05856032 0.21057031 0.68016622]\n",
+      " [0.9544987  0.63741821 0.43483276]\n",
+      " [0.33166472 0.4654907  0.87797761]]\n",
+      "a: (array([[-0.05785592,  0.58469622, -0.80918664],\n",
+      "       [-0.94301731, -0.29804859, -0.14793713],\n",
+      "       [-0.32767522,  0.75451797,  0.56862253]]), array([[-1.01217517, -0.76580891, -0.73709797],\n",
+      "       [ 0.        ,  0.28435916,  0.93053922],\n",
+      "       [ 0.        ,  0.        , -0.11547148]]))\n"
+     ]
+    }
+   ],
+   "source": [
+    "n=3\n",
+    "x = np.random.sample((n, n))\n",
+    "print('x:',x)\n",
+    "if np.linalg.det(x) > 0:\n",
+    "    a = np.linalg.qr(x)\n",
+    "else:\n",
+    "    a = np.linalg.inv(x)\n",
+    "print('a:',a)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "9. Сделать скалярное и матричное умножение двух матриц nxm"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a1: [[0.24508618 0.03942875 0.46175675]\n",
+      " [0.27697367 0.66070494 0.31815691]\n",
+      " [0.85089169 0.48839694 0.21578407]]\n",
+      "a2: [[1.0745752  1.17677063 1.10875303]\n",
+      " [1.39158297 1.06415587 1.37182742]\n",
+      " [1.541719   0.88149953 1.52617293]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "x1 = 3\n",
+    "n = np.random.sample((x1, x1))\n",
+    "m = np.random.sample((x1, x1))\n",
+    "a1 = n*m\n",
+    "a2 = n@m\n",
+    "print('a1:', a1)\n",
+    "print('a2:', a2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "10. Решить систему линейный уравнений Ax = b, где А(nxn) и b(n) задаются случайно."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x:\n",
+      " [ 1.13644039  0.0180259  -0.38534383  0.85186705 -0.40929669]\n"
+     ]
+    }
+   ],
+   "source": [
+    "n=5\n",
+    "A = np.random.sample((n, n))\n",
+    "b = np.random.sample(n)\n",
+    "x = np.linalg.solve(A, b)\n",
+    "print('x:\\n', x)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
